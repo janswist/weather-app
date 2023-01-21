@@ -22,9 +22,12 @@ npm run test
 ```
 
 ### E2E testing
-Requires localhost server already running. Please run `npm run dev` before starting e2e tests.
+Requires localhost server already running. 
+- `npm run dev` before starting e2e tests
+to the local development server (if not already started)
+- `npm run cypress:open`
+- after Cypress dialog opens click `Start E2E Testing in Chrome`
+- select `Weather.cy.js` to start tests
 
-Next, set `baseUrl` inside `cypress.config.js` to the localhost address of the site.
-```
-npm run cypress:open 
-```
+To close:
+- on the initial Cypress dialog click `Close`
