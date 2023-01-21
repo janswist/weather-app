@@ -1,6 +1,6 @@
 <template lang="pug">
 div
-  h1 Weclome to the weather report app
+  h1 Welcome to the weather report app
   
   div(v-if="prompt == 'granted'")
     h2 The weather today is:
@@ -87,7 +87,7 @@ export default {
       try {
         const response = await fetch(
           `https://api.weatherapi.com/v1/current.json`
-           + `?key=${process.env.VUE_APP_WEATHERAPI_KEY}` // ofc, .env should never be pushed to the repo, but for simplicity it is here
+           + `?key=${import.meta.env.VITE_WEATHERAPI_KEY}` // ofc, .env should never be pushed to the repo, but for simplicity it is here
            + `&q=${latitude},${longitude}`,
           requestOptions
         )
@@ -111,7 +111,7 @@ export default {
     },
 
     setWeatherData (weatherData) {
-      this.weather = {...weatherData}
+      this.weather = weatherData
     }
   }
 }
