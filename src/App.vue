@@ -1,10 +1,10 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
+  <img alt="Vue logo" src="@/assets/logo.png">
   <Weather/>
 </template>
 
 <script>
-import Weather from './components/Weather.vue'
+import Weather from '@/components/Weather.vue'
 
 export default {
   name: 'App',
