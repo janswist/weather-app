@@ -6,9 +6,10 @@ The purpose of this small app is to show my coding style and (small portion of m
 - naming
 - networking
 - testing
+- dependency injection
 
 Notes:
-- I'm (very) aware of `axios` library. I'm using it in most of the projects where more control is needed. In this case only one simple GET request was needed so I relied on `fetch` instead.
+- I'm using TWO http clients for dependency injection example purposes. You can choose between `axios` and `fetch` or add new one without changing the implementation.
 - WeatherApi key is exposed on purpose to make it easier to just download and run.
 - Less is more. Only pros know that it's easier to write long code than a short one, but not too short. Readability is also key.
 

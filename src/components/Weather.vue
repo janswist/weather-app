@@ -22,6 +22,8 @@ div
 </template>
 
 <script>
+import { getData, extractDataFromResponse } from '@/httpClient.js'
+
 export default {
   name: 'WeatherComp',
 
@@ -75,21 +77,12 @@ export default {
 
     async queryWeather (latitude, longitude) {
       this.fetching = true
-      
-      const requestOptions = {
-        method: 'GET',
-        redirect: 'follow',
-        headers: {
-          'mode': 'no-cors'
-        }
-      }
 
       try {
-        const response = await fetch(
+        const response = await getData(
           `https://api.weatherapi.com/v1/current.json`
            + `?key=${import.meta.env.VITE_WEATHERAPI_KEY}` // ofc, .env should never be pushed to the repo, but for simplicity it is here
-           + `&q=${latitude},${longitude}`,
-          requestOptions
+           + `&q=${latitude},${longitude}`
         )
 
         const { 
@@ -98,7 +91,7 @@ export default {
             condition: {
               icon: weatherIcon,
               text: weatherDescription
-            }}} = await response.json()
+            }}} = await extractDataFromResponse(response) //await response.json()
 
         this.setWeatherData({tempInCelsius, weatherIcon, weatherDescription})
         
